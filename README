@@ -1,0 +1,33 @@
+Abstract
+========
+
+This is a fuse-based filesystem that allows to work with m3u playlists as with
+regular directories. It acts as a `mount --bind' command but replace all m3u
+playlists located in a source directory with regular directories containing
+all media listed in playlists.
+
+Supported features are:
+  - Extended m3u
+  - Overlay mount, i.e. mounting directory and mountpoint can be the same
+  - Process m3u playlists on demand (not during mount, but when you read them)
+  - Track for m3u changes and apply them without remount
+  - Shuffle
+
+Playlist limitations:
+  - All media with absolute path are ignored
+  - Only regular files are supported right now
+
+How to mount a filesystem
+=========================
+
+  m3ufs dir mountpoint [options]
+
+Dependences
+===========
+  - FUSE 2.3 or later
+
+Installing
+==========
+
+  make
+  make install
